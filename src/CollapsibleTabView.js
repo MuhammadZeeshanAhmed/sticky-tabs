@@ -8,6 +8,7 @@ import {
   Animated,
   TouchableOpacity,
   FlatList,
+  Pressable,
 } from 'react-native';
 import { TabView, TabBar } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -184,12 +185,12 @@ const CollapsibleTabView = () => {
     const { routes, icon } = item
     return (
       <View style={style.iconContainer}>
-        <TouchableOpacity onPress={() => {
+        <Pressable onPress={() => {
           // navigation.navigate(routes)
           setRouteName(routes)
         }} style={routes === routeName ? [style.box, { backgroundColor: ORANGE_COLOR }] : style.box}>
           {icon}
-        </TouchableOpacity>
+        </Pressable>
       </View>
     );
   };
@@ -237,7 +238,11 @@ const CollapsibleTabView = () => {
     );
   };
 
-  const renderTabBar = (props) => {
+  const ico  = [ 'user' , 'edit','lock','clock']
+
+
+  const renderTabBar = (props ,index) => {
+    console.log(props, 'this is index')
     const y = scrollY.interpolate({
       inputRange: [0, HeaderHeight],
       outputRange: [HeaderHeight, 0],
@@ -246,25 +251,25 @@ const CollapsibleTabView = () => {
     return (
       <Animated.View
         style={{
-          top: 0,
           zIndex: 1,
-          position: 'absolute',
           transform: [{ translateY: y }],
           width: '100%',
+          height:75,
         }}>
         <TabBar
-          renderIcon={({ route, focused, color }) => (
+          renderIcon={({ route, focused, color }) => {
+            console.log(color , 'this is data of icons ')
+            return(
             <View style={style.iconContainer}>
-              <TouchableOpacity onPress={() => {
-                // navigation.navigate(routes)
+              <Pressable onPress={() => {
                 setRouteName(routes)
-              }} style={routes === routeName ? [style.box, { backgroundColor: ORANGE_COLOR }] : style.box}>
-                <Icon name='edit' />
-              </TouchableOpacity>
-            </View>
-          )}
-          indicatorStyle={{ backgroundColor: 'transparent' }}
-          style={{ backgroundColor: '#fff' }}
+              }} style={routes === routeName ? [{ backgroundColor: 'red' }] : style.box}>
+                <Icon name={props.navigationState.icos[0]} />
+              </Pressable>
+            </View>)
+          }}
+          indicatorStyle={{ backgroundColor: 'orange' }}
+          style={{ backgroundColor: 'red' }}
           {...props}
           onTabPress={({ route, preventDefault }) => {
             if (isListGliding.current) {
@@ -291,12 +296,13 @@ const CollapsibleTabView = () => {
       </Animated.View>
     );
   };
+  const icos  = [ 'user' , 'edit','lock','clock']
 
   const renderTabView = () => {
     return (
       <TabView
         onIndexChange={(index) => setIndex(index)}
-        navigationState={{ index: tabIndex, routes }}
+        navigationState={{ index: tabIndex,  routes,icos }}
         renderScene={renderScene}
         renderTabBar={renderTabBar}
         initialLayout={{

@@ -12,7 +12,7 @@ const CLOCK = `clock`
 const ADDITION = `addition`
 const BALANCE = `balance`
 const GREY_COLOR = `grey`
-const ORANGE_COLOR = `#FF9172`
+const ORANGE_COLOR = `red`
 const USER_ICON = <Icon style={{ top: 5}} name='user' size={20} />
 
 const data = [{

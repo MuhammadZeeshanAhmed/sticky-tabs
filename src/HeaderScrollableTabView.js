@@ -257,7 +257,7 @@ const App = () => {
   const renderLabel = ({route, focused}) => {
     return (
       <Text style={[styles.label, {opacity: focused ? 1 : 0.5}]}>
-        {route.title}
+        {/* {route.title} */}
       </Text>
     );
   };

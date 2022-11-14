@@ -11,7 +11,7 @@ const style = StyleSheet.create({
         paddingTop: 20,
         flexDirection: 'row',
         position: 'absolute',
-        top: 20,
+        // top: 20,
         justifyContent:'space-between',
         width:'90%',
         alignSelf:'center'
@@ -35,7 +35,6 @@ const style = StyleSheet.create({
     },
     iconContainer: {
         backgroundColor: '#ffff',
-        padding: 10
     },
     box: {
         shadowColor: "#000",
@@ -51,7 +50,7 @@ const style = StyleSheet.create({
         height: 50,
         borderRadius: 20,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     header: {
         justifyContent: 'center',
