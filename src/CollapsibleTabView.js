@@ -263,13 +263,13 @@ const CollapsibleTabView = () => {
             <View style={style.iconContainer}>
               <Pressable onPress={() => {
                 setRouteName(routes)
-              }} style={routes === routeName ? [{ backgroundColor: 'red' }] : style.box}>
+              }} style={routes === routeName ? [{ backgroundColor: ORANGE_COLOR }] : style.box}>
                 <Icon name={props.navigationState.icos[0]} />
               </Pressable>
             </View>)
           }}
-          indicatorStyle={{ backgroundColor: 'orange' }}
-          style={{ backgroundColor: 'red' }}
+          indicatorStyle={{ backgroundColor: 'transparent' }}
+          style={{ backgroundColor: '#fff' }}
           {...props}
           onTabPress={({ route, preventDefault }) => {
             if (isListGliding.current) {
