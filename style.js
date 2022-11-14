@@ -12,9 +12,14 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         position: 'absolute',
         // top: 20,
+        padding:10,
+        paddingBottom:25,
         justifyContent:'space-between',
-        width:'90%',
-        alignSelf:'center'
+        width:'100%',
+        alignSelf:'center',
+        backgroundColor:'white',
+        flex:1,
+        height:70,
     },
     mealText: {
         fontSize: 20,
@@ -34,7 +39,7 @@ const style = StyleSheet.create({
         bottom: 0
     },
     iconContainer: {
-        backgroundColor: '#ffff',
+        borderRadius:20,
     },
     box: {
         shadowColor: "#000",
@@ -45,7 +50,6 @@ const style = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        backgroundColor: '#ffff',
         width: 50,
         height: 50,
         borderRadius: 20,
